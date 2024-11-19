@@ -1,0 +1,25 @@
+<h2 class="text-center text-danger">Egresos</h2>
+<ul class="list-group mt-3">
+  @for (expenditure of expenditures; track expenditure) {
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span class="flex-grow-1">
+      {{ expenditure.description }}
+    </span>
+    <span class="d-flex align-items-center mx-3">
+      <span class="text-danger"
+        >- {{ expenditure.value | currency : "GTQ" : "Q" : "1.2-2" }}
+      </span>
+      <span class="badge bg-success ms-2">
+        {{ calculatePercentage(expenditure) | percent }}
+      </span>
+    </span>
+    <button
+      class="btn btn-sm btn-danger"
+      (click)="deleteExpenditure(expenditure)"
+    >
+      <i class="bi bi-x-circle"></i>
+      <!-- Bootstrap Icon -->
+    </button>
+  </li>
+  }
+</ul>

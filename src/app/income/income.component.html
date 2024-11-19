@@ -1,0 +1,17 @@
+<h2 class="text-center text-primary">Ingresos</h2>
+<ul class="list-group mt-3">
+  @for (income of incomes; track income) {
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span class="flex-grow-1">
+      {{ income.description }}
+    </span>
+    <span class="text-success mx-3">
+      {{ income.value | currency : "GTQ" : "Q" : "1.2-2" }}
+    </span>
+    <button class="btn btn-sm btn-danger" (click)="deleteIncome(income)">
+      <i class="bi bi-x-circle"></i>
+      <!-- Bootstrap Icon -->
+    </button>
+  </li>
+  }
+</ul>
